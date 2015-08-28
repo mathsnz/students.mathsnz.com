@@ -1,0 +1,58 @@
+﻿/*
+    Taken pretty much lock stock & barrel from:
+    http://line25.com/tutorials/build-a-simple-image-slideshow-with-jquery-cycle
+*/
+
+div#slideshow {
+	width: 590px; height: 250px; padding: 0px 0px 0px 0px; margin:0px 0px 0px 0px;
+	overflow: scroll; /* Allows the slides to be viewed using scrollbar if Javascript isn't available */
+	position: relative; z-index: 5;
+}
+
+
+div#slideshow ul#slideshow_nav {
+	display: none;
+	list-style: none;
+	position: absolute; top: 70px; z-index: 15;
+	margin:0px;
+}
+div#slideshow ul#slideshow_nav li#slideshow_nav_prev {
+	position:absolute;
+	left:20px;
+}
+div#slideshow ul#slideshow_nav li#slideshow_nav_next {
+	position:absolute;
+	left:490px;
+}
+
+div#slideshow ul#slideshow_nav li a {
+	display: block; width: 80px; height: 80px; text-indent: -9999px; 
+}
+div#slideshow ul#slideshow_nav li#slideshow_nav_prev a {
+	background: url('../images/prev.png');
+}
+div#slideshow ul#slideshow_nav li#slideshow_nav_next a {
+	background: url('../images/next.png');
+}
+
+div#slideshow ul#slides {
+	list-style: none;
+	margin:0px;
+}
+div#slideshow ul#slides li {
+	margin: 0 0 0px 0;
+}
+
+div#slideshow ul#slides li h5 {
+    display:block;
+    margin-top:0.5em;
+    width:590px;
+    height:44px;
+    vertical-align:middle;
+    bottom:0px;
+    font-size:0.7em;
+    background:no-repeat url('../images/featured/ABSystemBannerSized.jpg') bottom right; 
+    /*
+    */
+}
+

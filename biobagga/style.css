@@ -1,0 +1,276 @@
+﻿/*
+
+    Corners courtesy of:
+    http://jquery.malsup.com/corner/
+*/
+
+body {
+    margin:0 auto;
+    background: white url('./bg.jpg') no-repeat bottom fixed;
+    font-family:arial,helvetica,sans-serif;
+    color:#000;
+}
+
+div#pnlMenu {
+    margin:0 auto;
+    width:960px;
+    text-align:center;
+    font-size:10pt;
+    font-family:arial,helvetica,sans-serif;
+ 
+}
+
+div#top_strip {
+    width:100%;
+    height:2em;
+    background-color:#F9aa08;
+    position:fixed;
+    z-index:998;
+    border-bottom:1px solid #144696;
+}
+
+#top_strip a{
+	padding-left:10px;
+	padding-right:10px;
+	position:relative;
+	top:5px;
+	color:#000;
+}
+
+
+#pagemain
+{
+    text-align:justify;
+    min-height:200px !important;
+    width:900px;
+    margin:0px auto;
+    /*
+    margin-top:10px;
+    border-top:solid 3px #f8e1a6;
+    background-color:White;
+    */
+    padding-top:2.5em;
+    padding-bottom:15px;
+}
+
+
+#pagefooter
+{
+    width:100%;
+    border-top:solid 1px #144696;
+    margin-top:20px;
+    padding:10px;
+    font-family:arial,helvetica,sans-serif;
+    font-size:11pt;
+    font-weight:bold;
+    background-color:#f9e4ba;
+    opacity:0.60;
+    filter:alpha(opacity=60); /* For IE8 and earlier */
+    /*
+    border-bottom:solid 1px #144696;
+    height:100px;
+    width:1000px;
+    margin:0 auto;
+*/
+}
+    
+div#footer_content {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+div#pagefooter p {
+    text-align:center;
+    vertical-align:bottom;
+    width:100%;
+}
+
+.slide-out-div {
+    padding: 0px 20px 20px 20px;
+    width: 220px;
+    background:#F9aa08;
+   /* border: 1px solid #666666;*/
+    z-index:1000;
+    color:#666666;
+    text-align:center;
+}   
+
+.slide-out-div a, .slide-out-div a:link, .slide-out-div a:visited {
+    color:#004999;
+}
+.slide-out-div a:hover {
+    
+    color:#ffffff;
+}
+
+
+
+
+
+.menuitem
+{
+    float:right;
+    text-align:right;
+    padding-bottom:3px;
+    padding-top:0.8em;
+    padding-left:10px;
+    padding-right:10px;
+    /*
+    height:35px;
+    margin:0px 0px 0px 15px;
+    width:125px;
+    margin-top:20px;
+    margin-left:8px;
+    margin-top:8px;
+    background: transparent url('../images/buttons/menu_bg_on_white.jpg') no-repeat;
+    background-color:Yellow;
+    */
+}
+
+.menuitem h2
+{
+    margin-top:0px;
+    margin-bottom:0px;
+    font-size:10pt;
+}
+
+
+
+
+
+
+
+/*********   THEME   *********/
+h1
+{
+    font-size:12pt;
+    font-weight:bold;
+    color:#117492;
+}
+
+h2
+{
+    font-size:12pt;
+    font-family:arial,helvetica,sans-serif;
+    color:#5abb65;
+}
+
+h3
+{
+    font-size:16pt;
+    font-weight:bold;
+    color:#e0e00a;
+}
+
+h4
+{
+    font-weight:bold;
+    color:#117492;
+}
+
+hr
+{
+    border:solid 1px #ffb602;
+    text-align:center;
+    width:80%;
+    color:#ffb602;
+    background-color:#ffb602;
+}
+
+a
+{
+    text-decoration:none;
+    font-weight:bold;
+}
+
+a:link, 
+a:visited
+{
+    /*border-bottom:1px solid red;*/
+    color:#5abb65;
+}
+
+a:hover
+{
+    color:#ffb602;
+}
+
+#pagefooter  a:link, 
+#pagefooter a:visited {
+    color:#666666;
+}
+
+#pagefooter a:hover {
+    color:#ffb602;
+}
+
+
+div#footer_content * a,
+div#footer_content * a:link,
+div#footer_content * a:visited
+{
+    color:Black;    
+}
+
+div#footer_content * a:hover {
+    color:#ffb602;
+}
+
+img {
+    border:none;
+}
+
+
+
+
+
+/*  *** ROUNDEDs *** */
+div.section_container {
+    background-color:#004999;
+    margin-bottom:10px;
+}
+        
+div.section_content {
+    background-color:white;
+    padding:15px;
+   
+}
+        
+div.main_section {
+    min-height:250px !important;
+}
+        
+div.sub_section {
+    min-height:175px !important;
+}
+
+
+
+/* ***  ACCORDIONs  *** */
+.accordionHeader,
+.accordionHeaderSelected {
+    cursor:pointer;
+    padding: 4px 12px;
+    margin-top: 3px;
+    
+    width:97%;
+    border:1px solid navy;
+}
+
+.accordionHeader {
+    background: silver url('../images/buttons/DropDownButton.png') no-repeat 99% 2px;
+}
+
+.accordionHeaderSelected {
+    background: silver url('../images/buttons/DropUpButton.png') no-repeat 99% 10px;
+}
+
+.accordionHeader h5,
+.accordionHeader h1 {
+    margin:0;
+}        
+        
+.accordionContent
+{
+}
+
