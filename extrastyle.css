@@ -14,10 +14,29 @@ body {
 	background-color:#eee;
 	box-shadow:0px 0px 2px rgba(0,0,0,0.5);
 	z-index:10;
-	font-size:16px;
-	line-height:20px;
+	font-size:15px;
+	overflow-y:auto;
 }
 #left a{
 	text-decoration:none;
 	color:#000;
+	padding-bottom:5px;
+	display:block;
+}
+h1{
+	text-align:center;
+}
+.indent {
+	padding-left:15px;
+}
+.prelesson{
+	float:left;
+}
+.nextlesson{
+	float:right;
+}
+.prelesson, .nextlesson{
+	display:inline-block;
+	color:#008800;
+	text-decoration:none;
 }
