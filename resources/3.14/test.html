@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>MathsNZ Students - 3.14 - Test</title>
+	<script src="../../jquery.js"></script>
+	<script src="../../js.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+	<link href='../../style.css' rel='stylesheet' type='text/css'>
+	<link href='../extrastyle.css' rel='stylesheet' type='text/css'>
+	<link rel="icon" href="http://students.mathsnz.com/favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" href="http://students.mathsnz.com/favicon.ico" type="image/x-icon"/>
+	<script> 
+	$(function(){
+	  $("#sites").load("../../sites.html"); 
+	  $("#header").load("../header-resourcesL2.html"); 
+	  $("#footer").load("../../footer.html"); 
+	  $("#left").load("left.html", function() {
+		var page = location.href.split("/").slice(-1);
+		$("a").each(function(){
+               if ($(this).attr("href") == page){
+                       $(this).css( "font-weight", "bold" );
+               }
+       });
+      });
+	});
+	</script> 
+</head>
+<body onload="$('#left a[href$=' + window.location.pathname + ']').addClass('selected');">
+<div id=content>
+This is going to be the new MathsNZ Students Website (once it is done).<br>
+<br>
+<div class="auto-resizable-iframe">
+  <div>
+    <iframe
+     frameborder="0"
+     allowfullscreen=""
+     src="http://www.youtube.com/embed/ylkkm47HFVM">
+     </iframe>
+  </div>
+</div>
+<img src='3.14_1_1.png' class='page-image' style='width:100%'>
+</div>
+<div id="sites"></div>
+<div id="header"></div>
+<div id="footer"></div>
+<div id="left"></div>
+</body>
+</html>
