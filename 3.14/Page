@@ -26,11 +26,31 @@
     <iframe
      frameborder='0'
      allowfullscreen=''
-     src='http://www.youtube.com/embed/ylkkm47HFVM'>
+     src='http://www.youtube.com/embed/Video 1'>
      </iframe>
   </div>
 </div>
-<img src='./images/3.14_1.1.png' class='page-image' style='width:100%'><br>
+
+<div class='auto-resizable-iframe'>
+  <div>
+    <iframe
+     frameborder='0'
+     allowfullscreen=''
+     src='http://www.youtube.com/embed/Video 2'>
+     </iframe>
+  </div>
+</div>
+
+<div class='auto-resizable-iframe'>
+  <div>
+    <iframe
+     frameborder='0'
+     allowfullscreen=''
+     src='http://www.youtube.com/embed/Video 3'>
+     </iframe>
+  </div>
+</div>
+
 <br>
 <a href='whoops' class='prelesson'>< Previous Lesson</a>
 <a href='whoops' class='nextlesson'>Next Lesson ></a>
