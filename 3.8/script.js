@@ -22,6 +22,4 @@
 			}
         });
       });
-	  document.title='MathsNZ Students - 3.14 - '+title;
-	  $("#pagetitle").text(title);
 	});

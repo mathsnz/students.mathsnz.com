@@ -17,7 +17,7 @@ foreach ($xlsx->rows() as $row ) {
 $text="
 <html>
 <head>
-	<title>MathsNZ Students - 3.14</title>
+	<title>MathsNZ Students - 3.14 - $title</title>
 	<script src='../jquery.js'></script>
 	<script src='../js.js'></script>
 	<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
@@ -25,9 +25,6 @@ $text="
 	<link href='../extrastyle.css' rel='stylesheet' type='text/css'>
 	<link rel='icon' href='http://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
 	<link rel='shortcut icon' href='http://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
-	<script> 
-	  var title='$title'; 
-	</script> 
 	<script src='./script.js'></script>
 </head>
 <body>
