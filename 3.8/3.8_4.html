@@ -16,17 +16,17 @@
 		<div id=content>
 		<a href='whoops' style='z-index:4;position:absolute;left:10px;top:10px;' class=prelesson>< Previous Lesson</a>
 		<a href='whoops' style='z-index:4;position:absolute;right:10px;top:10px;' class=nextlesson>Next Lesson ></a>
-		<span style='position:relative;top:10px;'>
+		<span style='position:relative;top:10px;'><a href='' class=button onclick='event.preventDefault();$("#videoholder").hide();$("#pdfholder").show();'>Notes / Questions</a>
 		</span>
 		</div>
-		<div id=pdfholder style='display:none'>
+		<div id=pdfholder>
 		<iframe src="http://docs.google.com/viewer?url=http://s.mathsnz.com/3.8/pdfs/4.pdf&embedded=true" style="width:100%; height:100%;" frameborder="0"></iframe>
 		</div>
 		<div id=videoholder style='overflow:auto;display:none'>
 			<br>
 		</div>
 		<br>
-		<br><center>Nothing here... try the <a href='whoops' style='display:inline;float:none;' class=nextlesson>next lesson</a>...</center>
+		<br>
 		<div id='sites'></div>
 		<div id='header'></div>
 		<div id='footer'></div>
