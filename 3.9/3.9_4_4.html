@@ -1,0 +1,35 @@
+
+		<html>
+		<head>
+			<title>MathsNZ Students - 3.9 - Part 4.4: Scatter</title>
+			<script src='../jquery.js'></script>
+			<script src='../js.js'></script>
+			<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+			<link href='../style.css' rel='stylesheet' type='text/css'>
+			<link href='../extrastyle.css' rel='stylesheet' type='text/css'>
+			<link rel='icon' href='http://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
+			<link rel='shortcut icon' href='http://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
+			<script src='./script.js'></script>
+		</head>
+		<body>
+		<span onclick='$("#left").css("left","0px");$("body").css("padding-left","250px");' style='position:absolute;top:55px;left:10px;cursor:pointer;font-size:15px'>Menu &#10140;</span>
+		<div id=content>
+		<a href='whoops' style='z-index:4;position:absolute;left:10px;top:10px;' class=prelesson>< Previous Lesson</a>
+		<a href='whoops' style='z-index:4;position:absolute;right:10px;top:10px;' class=nextlesson>Next Lesson ></a>
+		<span style='position:relative;top:10px;'><a href='' class=button onclick='event.preventDefault();$("#videoholder").hide();$("#pdfholder").show();'>Notes / Questions</a>
+		</span>
+		</div>
+		<div id=pdfholder>
+		<iframe src="http://docs.google.com/viewer?url=http://s.mathsnz.com/3.9/pdfs/4_4.pdf&embedded=true" style="width:100%; height:100%;" frameborder="0"></iframe>
+		</div>
+		<div id=videoholder style='overflow:auto;display:none'>
+			<br>
+		</div>
+		<br>
+		<br>
+		<div id='sites'></div>
+		<div id='header'></div>
+		<div id='footer'></div>
+		<div id='left'></div>
+		</body>
+		</html>
