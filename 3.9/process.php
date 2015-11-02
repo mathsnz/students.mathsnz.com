@@ -47,7 +47,7 @@ foreach ($xlsx->rows() as $x=>$row ) {
 			$text.=" style='display:none'";
 		}
 		$text.=">
-		<iframe src=\"http://docs.google.com/viewer?url=http://s.mathsnz.com/3.9/pdfs/$row[6].pdf&embedded=true\" style=\"width:100%; height:100%;\" frameborder=\"0\"></iframe>
+		<iframe src=\"http://docs.google.com/viewer?url=http://students.mathsnz.com/3.9/pdfs/$row[6].pdf&embedded=true\" style=\"width:100%; height:100%;\" frameborder=\"0\"></iframe>
 		</div>
 		<div id=videoholder style='overflow:auto;";
 		if(!$videos){

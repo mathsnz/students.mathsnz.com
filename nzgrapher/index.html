@@ -1,0 +1,57 @@
+<html>
+<head>
+	<title>MathsNZ Students - NZGrapher</title>
+	<script src="../jquery.js"></script>
+	<script src="../js.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+	<link href='../style.css' rel='stylesheet' type='text/css'>
+	<link rel="icon" href="http://students.mathsnz.com/favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" href="http://students.mathsnz.com/favicon.ico" type="image/x-icon"/>
+	<script> 
+	$(function(){
+	  $("#sites").load("../sites.html"); 
+	  $("#header").load("../header-L2.html"); 
+	  $("#footer").load("../footer.html"); 
+	  $("#pages").load("./left.html"); 
+	  document.title='MathsNZ Students - NZGrapher';
+	  $("#pagetitle").text(document.title);
+	});
+	</script> 
+	<style>
+		#pages a {
+			display:block;
+		}
+		#pages a.indent {
+			padding-left:15px;
+		}
+		h1{
+			text-align:center;
+		}
+		table {
+			font-size:15px;
+		}
+		td, th {
+			width:33%;
+			border:1px solid #ccc;
+			padding:10px;
+		}
+		#content{
+			text-align:center;
+		}
+		#pages {
+			text-align:left;
+		}
+	</style>
+</head>
+<body>
+<div id=content>
+<h1 id=pagetitle></h1>
+<br>
+<div id=pages>
+</div>
+</div>
+<div id="sites"></div>
+<div id="header"></div>
+<div id="footer"></div>
+</body>
+</html>
