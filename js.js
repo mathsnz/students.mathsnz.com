@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	$(window).resize(function(){ $('#nav2').css("display", "none");}); 
-	$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />');
 	$('head').append('<link rel="apple-touch-icon" href="http://www.mathsnz.com/icon.png">');
 	$('body').append('<img src="http://tracking.jake4maths.com/studentsimage.php?url='+window.location.href+'" style="position:absolute;left:-100px;top:-100px;">');
  });
