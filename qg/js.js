@@ -52,6 +52,7 @@ function addquestion(w){
 //question processing
 function processquestion(w) {
 	var array = window[w]();
+	$.get( "http://tracking.jake4maths.com/newgeneratorget.php", { question: w} );
 	var question = array['question'];
 	var answer = array['answer'];
 	var description = array['description'];
