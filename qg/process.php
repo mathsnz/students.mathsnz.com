@@ -8,14 +8,13 @@ foreach ($files as $file){
 	if(substr($file,-2)=="js"){
 		$contents = file_get_contents($dir.'/'.$file);
 		$contents = explode('|',$contents);
-		if(!array_key_exists($contents[1],$types)){
-			$types[$contents[1]]=array();
-		}
-		$types[$contents[1]][$contents[3]]=$file;
+		$types[$contents[1]."|".$contents[3]][$contents[5]]=$file;
 	}
 }
+ksort($types);
 foreach ($types as $type => $questions){
-	$output .= "<div><span class=type>$type</span><select class=addselect>
+	$type = explode('|',$type);
+	$output .= "<div><span class=type>{$type[1]}</span><select class=addselect>
 ";
 	foreach ($questions as $question => $script){
 		$output .= "<option value=".substr($script,0,-3).">$question</option>
