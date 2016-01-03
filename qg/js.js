@@ -110,7 +110,7 @@ $(document).on('click', '.check', function () {
 		$(this).parent().children('.working').each(function(){
 			$(this).removeAttr('contenteditable').blur();
 		})
-		$(this).parent().children('.checktext').each(function(){
+		$(this).parent().children('.questiontext').first().children('.checktext').each(function(){
 			if($(this).text().length == 0){
 				$(this).text('not answered');	
 			}
