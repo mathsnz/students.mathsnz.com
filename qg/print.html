@@ -1,0 +1,87 @@
+<html>
+<head>
+  <title>Print Questions - MathsNZ Question Generator</title>
+	<script src="jquery.js"></script>
+	<script src="js.js"></script>
+	<script src="bignumber.min.js"></script>
+	<script src="base64.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+	body{
+		font-size:0.9em;
+	}
+	#questiontoadd, #addquestion, .working, .workinglabel, .check, .attemptholder, #selectors{
+		display:none;
+	}
+	#questions{
+		max-width:650px;
+		margin:auto;
+	}
+	#questions li {
+		border:none;
+		display:inline-block;
+		min-width:280px;
+		margin: 0 10px;
+		padding: 0 10px 10px;
+		
+	}
+	#questionholder{
+		max-width:650px;
+		padding:0px;
+		text-align:left;
+	}
+	#questions li:before{
+		white-space: nowrap;
+		padding-right: 0.25em;
+		display:inline-block;
+		position:relative;
+		top:1px;
+		left:0px;
+		font-weight:bold;
+	}
+	.questiontext{
+		max-width:100%;
+		display:inline;
+	}
+	.question {
+		min-height:0px;
+		width:auto;
+		display:inline;
+	}
+	.checktext {
+		border:none;
+		border-bottom:1px solid #000;
+	}
+	#answerholder{
+		margin:auto;
+		max-width:650px;
+	}
+	#answers {
+		text-align:left;
+		padding:0px;
+	}
+	@media print {
+		#showhideanswers {
+			display:none;
+		}
+		#questions, #questionholder {
+			width:100%;
+			max-width:100%;
+		}
+	}
+  </style>
+</head>
+<body>
+
+<span id=selectors></span>
+<button id=addquestion onclick="buttonaddquestion()">Add Question</button>
+<div id=questionholder><ol id=questions><li class=questiondescription style='display:none;'>Question Description</li></ol></div>
+<div id=showhideanswers onclick='$("#answerholder").toggle();'><br>Click here to show/hide the answers.</div>
+<div id=answerholder style='display:none;'><h1>Answers:</h1><ol id=answers></ol></div>
+<div id=linkholder><br>
+	Made with MathsNZ Question Generator<br>
+	Link to this worksheet: <a href='' id=linkscreen>On Screen</a> or <a href='' id=linkprint>Print</a><br>
+	You can also <a href='' id=linkcreator>Edit this Worksheet</a>
+</div>
+</body>
+</html>

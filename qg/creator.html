@@ -1,0 +1,84 @@
+<html>
+<head>
+  <title>Creator - MathsNZ Question Generator</title>
+	<script src="jquery.js"></script>
+	<script src="js.js"></script>
+	<script src="bignumber.min.js"></script>
+	<script src="base64.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+	html {
+		min-width:830px;
+	}
+	#questionholder{
+		position:fixed;
+		top:40px;
+		right:0px;
+		left:320px;
+		right:0px;
+		padding:10px;
+		bottom:0;
+		overflow-y:auto;
+		margin:0px;
+		width:auto;
+		max-width:100%;
+		min-width:0%;
+	}
+	#adder {
+		position:fixed;
+		left:0px;
+		width:300px;
+		padding:10px;
+		bottom:0px;
+		top:40px;
+		overflow-y:auto;
+		text-align:left;
+		border-right:1px solid #ccc;
+		margin:0px;
+		z-index:2;
+		box-shadow:0px 0px 3px rgba(0,0,0,0.8);
+		background-color:#fafafa;
+	}
+	#linkholder {
+		font-size:1em;
+	}
+	#questions,#answers{
+		max-width:800px;
+		margin:auto;
+		text-align:left;
+		min-width:500px;
+	}
+	#top{
+		position:fixed;
+		top:0px;
+		left:0px;
+		right:0px;
+		height:40px;
+		background-color:#f80;
+		border-bottom:#ccc;
+		z-index:3;
+		box-shadow:0px 0px 5px rgba(0,0,0,0.8);
+	}
+	.remove {
+		display:block;
+		position:absolute;
+		right:-20px;
+		top:-2px;
+		cursor:pointer;
+	}
+  </style>
+</head>
+<body>
+<div id=top><a href='./'><img src='logo-wide small.png' style='height:35px;float:left;position:relative;top:2px;left:3px;'></a></div>
+<div id=adder>
+<span id=selectors></span>
+<div id=linkholder><br>Link to this worksheet: <a href='' id=linkscreen target='_blank'>On Screen</a> or <a href='' id=linkprint target='_blank'>Print</a></div>
+<div style='display:none'><br><a href='' id=linkcreator target='_blank'>Edit this Worksheet</a></div>
+</div>
+<br>
+<div id=questionholder><br><ol id=questions><li class=questiondescription style='display:none;'>Question Description</li></ol>
+<div id=showhideanswers onclick='$("#answerholder").toggle();'><br>Click here to show/hide the answers.</div>
+<div id=answerholder style='display:none;'><h1>Answers:</h1><ol id=answers></ol></div>
+</div>
+</body>
+</html>

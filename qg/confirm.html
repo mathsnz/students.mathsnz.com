@@ -1,0 +1,102 @@
+<html>
+<head>
+  <title>MathsNZ Question Generator</title>
+	<script src="jquery.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+	html {
+		min-width:830px;
+	}
+	#content {
+		max-width:830px;
+		margin:auto;
+		padding-top:40px;
+		text-align:left;
+	}
+	#top{
+		position:fixed;
+		top:0px;
+		left:0px;
+		right:0px;
+		height:40px;
+		background-color:#f80;
+		border-bottom:#ccc;
+		z-index:3;
+		box-shadow:0px 0px 5px rgba(0,0,0,0.8);
+	}
+	img {
+		max-width:100%;
+	}
+	input {
+		width:200px;
+		border:1px solid #ccc;
+		background-color:#fafafa;
+		padding:1px;
+	}
+	#submit {
+		border:1px solid #ccc;
+		background-color:#cfc;
+		padding:1px;
+		text-align:center;
+		cursor:pointer;
+		width:120px;
+		margin:auto;
+	}
+	#replacing{
+		min-height:150px;
+	}
+  </style>
+</head>
+<body>
+<div id=top><a href='./'><img src='logo-wide small.png' style='height:35px;float:left;position:relative;top:2px;left:3px;'></a></div>
+<div id=content>
+<h1 style='text-align:center;'>MathsNZ Question Generator - Teacher Sign Up Confirmation</h1><br>
+Thanks for wanting to sign up... by signing up you agree to get emails from MathsNZ Question Generator.<br>
+If you don't want to get emails, don't sign up.<br>
+<br>
+<div id=replacing>
+<div id=submit>Confirm</div>
+</div>
+</div>
+<span style='text-align:center;font-size:0.8em;'>
+Any questions or errors, or if you wish to contribute please <a href='http://www.mathsnz.com/contact'>contact me</a>.<br>
+This site is maintained by Jake Wills.<br>
+All resources may be used for personal teaching only and are not to be sold.<br>
+</span>
+</body>
+<script>
+$(document).on('click', '#submit', function () {
+	var getUrlParameter = function getUrlParameter(sParam) {
+		var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+			sURLVariables = sPageURL.split('&'),
+			sParameterName,
+			i;
+
+		for (i = 0; i < sURLVariables.length; i++) {
+			sParameterName = sURLVariables[i].split('=');
+
+			if (sParameterName[0] === sParam) {
+				return sParameterName[1] === undefined ? true : sParameterName[1];
+			}
+		}
+	};
+
+	$( "#replacing" ).html( '<b>Please wait a moment...</b>' );
+	var url = 'http://www.jake4maths.com/generatorshare/confirm.php';
+	$.ajax({
+        url : url,
+        method : "POST", 
+		type: "POST",
+		data: {
+			email: getUrlParameter('e'),
+			code: getUrlParameter('c')
+		},
+        dataType:"json",
+        success:function(data)
+        {
+            $( "#replacing" ).html("<b>Done:</b><br>"+data.message);
+        }
+    });
+})
+</script>
+</html>

@@ -1,0 +1,194 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+html {
+	min-width:500px;
+}
+body, input, select {
+	font-family: 'Century Gothic', CenturyGothic, 'Lato', sans-serif;
+}
+body{
+  font-size:1em;
+  text-align:center;
+}
+
+a {
+	color:#f80;
+}
+
+input {
+	width:100px;
+}
+
+#answers {
+	padding: 20px; 
+    list-style-type:decimal;
+    counter-reset: LIST-ITEMS 0;
+	max-width:800px;
+	margin:auto;
+}
+
+#answers li {
+	display:inline-block;
+	min-width:100px;
+	margin: 0 10px;
+	padding: 0 10px;
+}
+
+#answers li:before {
+	content: counter( LIST-ITEMS ) ". ";
+	counter-increment: LIST-ITEMS;
+	padding-right: 0.25em;
+	font-weight:bold;
+	white-space: nowrap;
+}
+
+#questions {
+    counter-reset: LIST-ITEMS 0;
+	padding:0px;
+	margin:0px;
+}
+
+#questions li {
+	border-bottom:1px solid #eee;
+	margin-bottom:15px;
+	text-align:left;
+    list-style: none;
+	display:block;
+	position:relative;
+}
+
+.questionli:before {
+	content: counter( LIST-ITEMS ) ". ";
+	counter-increment: LIST-ITEMS;
+	padding-right: -20%;
+	display:inline;
+	position:absolute;
+	top:1px;
+	left:0px;
+	font-weight:bold;
+}
+
+#questionholder {
+	margin:auto;
+	max-width:800px;
+}
+
+#linkholder {
+	font-size:0.8em;
+}
+
+.questiontext{
+	max-width:40%;
+	line-height:1.2em;
+	text-align:justify;
+	position:relative;
+	left:35px;
+}
+
+.checktext, .checkedtext {
+	display:inline-block;
+	border:1px solid #ccc;
+	min-width:50px;
+}
+
+.checkedtext{
+	background-color:#cfc;
+}
+
+.checkedtextwrong{
+	background-color:#fcc;
+}
+
+.question {
+	width:100%;
+	position:relative;
+	top:0;
+	left:0;
+	min-height:50px;
+	margin-bottom:20px;
+	margin-top:20px;
+}
+
+.check, .checked {
+	position:absolute;
+	top:0px;
+	right:0px;
+	width:100px;
+	height:100%;
+	border:1px solid #ccc;
+	background-color:#cfc;
+	text-align:center;
+	color:#333;
+	text-transform: uppercase;
+	font-size:0.8em;
+	vertical-align: middle;
+	display: table-cell;
+}
+.checked {
+	background-color:#eee;
+}
+.check p, .checked p {
+	position: absolute;
+    top: 50%;
+    margin-top: -0.5em;
+	width:100%;
+}
+
+.working {
+	border:1px solid #ccc;
+	position:absolute;
+	right:100px;
+	top:0px;
+	height:100%;
+	width:30%;
+	overflow:auto;
+}
+
+.workinglabel {
+	position:absolute;
+	right:100px;
+	top:-1em;
+	height:0.7em;
+	font-size:0.7em;
+	width:30%;
+	text-transform: uppercase;
+}
+
+.attemptholder {
+	position:absolute;
+	right:0px;
+	top:-1em;
+	text-transform: uppercase;
+	font-size:0.7em;
+}
+
+#showhideanswers, .check, #addquestion {
+	cursor:pointer;
+}
+
+.questiondescription{
+	width:100%;
+}
+
+h1{
+	font-size:1.5em;
+}
+.addquestion {
+	display:inline-block;
+	border:1px solid #aaa;
+	cursor:pointer;
+	background-color:#ddd;
+	font-size:0.8em;
+	padding:0.1em;
+	line-height:1.1em;
+}
+.addselect {
+	width:130px;
+}
+.type {
+	width:130px;
+	display:inline-block;
+	padding-bottom:10px;
+}
+.remove {
+	display:none;
+}
