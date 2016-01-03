@@ -86,7 +86,7 @@ $(document).on('click', '#submit', function () {
         dataType:"json",
         success:function(data)
         {
-            $( "#replacing" ).html("<b>Done:</b><br>"+data.message);
+            $( "#replacing" ).html(data.message);
         }
     });
 })
