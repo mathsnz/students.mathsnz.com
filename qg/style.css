@@ -84,17 +84,17 @@ input {
 	left:35px;
 }
 
-.checktext, .checkedtext {
+.checktext, .checknumber, .checkeda {
 	display:inline-block;
 	border:1px solid #ccc;
 	min-width:50px;
 }
 
-.checkedtext{
+.checkeda{
 	background-color:#cfc;
 }
 
-.checkedtextwrong{
+.checkedwrong{
 	background-color:#fcc;
 }
 
