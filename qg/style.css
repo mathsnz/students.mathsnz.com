@@ -188,6 +188,12 @@ h1{
 	width:130px;
 	display:inline-block;
 	padding-bottom:10px;
+	font-size:90%;
+}
+standards{
+	font-size:90%;
+	float:right;
+	padding-right:3px;
 }
 .remove {
 	display:none;
