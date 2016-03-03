@@ -1,4 +1,6 @@
 
+window.onerror=function(msg,url,line)
+{$.post("http://tracking.jake4maths.com/generatorerror.php",{msg:encodeURIComponent(msg),url:encodeURIComponent(url),line:encodeURIComponent(line)});console.log('there was an error');return true;}
 var loaded={};$(document).ready(function(){var pathArray=window.location.pathname.split('/');var newPathname="";for(i=0;i<pathArray.length-1;i++){newPathname+=pathArray[i];newPathname+="/";}
 $('#selectors').load("allquestions.html",function(){if(window.location.hash.length){var questions=window.location.hash.substring(1).split(',');$.each(questions,function(i,w){addquestion(w,1);});}
 window.location.hash='';$('.addquestion').click(function(){var w=$(this).parent().children('.addselect').first().val();addquestion(w,1);});});$('#linkscreen').attr("href",window.location.origin+newPathname+'onscreen.html#');$('#linkprint').attr("href",window.location.origin+newPathname+'print.html#');$('#linkcreator').attr("href",window.location.origin+newPathname+'creator.html#');});function addquestion(w,e){if(!loaded[w]){if($('.addselect option[value="'+w+'"]').length>0){$.getScript('./questions/'+w+'.js',function(){processquestion(w,e);loaded[w]='yes';});}}else{processquestion(w,e);}}
