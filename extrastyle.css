@@ -52,7 +52,7 @@ h1{
 	min-width:600px;
 	text-align:center;
 }
-#pdfholder, #videoholder {
+#pdfholder, #videoholder, #questionholder {
 	min-width:600px;
 	position:fixed;
 	left:230px;
