@@ -1,3 +1,3 @@
 
-function timeseries2plan26(){var answer="";var question='<img width=300 src="./images/3.8-6r.png">';var description="Name the source for the graph(s) below.";var array={question:question,answer:answer,description:description}
+function timeseries2plan26(){var answer="";var question='<img width=300 src="http://students.mathsnz.com/qg/images/3.8-6r.png">';var description="Name the source for the graph(s) below.";var array={question:question,answer:answer,description:description}
 return array;}
