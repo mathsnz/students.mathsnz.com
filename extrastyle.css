@@ -61,6 +61,11 @@ h1{
 	bottom:30px;
 	background-color:#ccc;
 }
+
+#questionholder{
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+}
 a.button {
 	padding:3px;
 	padding-right:5px;
