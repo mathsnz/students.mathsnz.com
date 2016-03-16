@@ -1,7 +1,6 @@
 body {
 	padding-left:250px;
 	background-color:#ddd;
-	min-width:815px;
 }
 
 #left {
@@ -49,11 +48,9 @@ h1{
 	border-bottom:1px solid #aaa;
 	width:auto;
 	max-width:100%;
-	min-width:600px;
 	text-align:center;
 }
 #pdfholder, #videoholder, #questionholder {
-	min-width:600px;
 	position:fixed;
 	left:230px;
 	right:0px;
@@ -77,4 +74,16 @@ a.button {
 	border-radius:3px;
 	text-decoration:none;
 	color:#fff;
+}
+
+@media (max-width: 815px) {
+	body, #content, #pdfholder, #videoholder, #questionholder, #header{
+		min-width:auto;
+	}
+	#left{
+		display:none;
+	}
+	#content, #pdfholder, #videoholder, #questionholder{
+		left:0px;
+	}
 }

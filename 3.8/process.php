@@ -24,12 +24,12 @@ foreach ($xlsx->rows() as $x=>$row ) {
 			<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
 			<link href='../style.css' rel='stylesheet' type='text/css'>
 			<link href='../extrastyle.css' rel='stylesheet' type='text/css'>
+			<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 			<link rel='icon' href='http://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
 			<link rel='shortcut icon' href='http://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
 			<script src='./script.js'></script>
 		</head>
 		<body>
-		<span onclick='$(\"#left\").css(\"left\",\"0px\");$(\"body\").css(\"padding-left\",\"250px\");' style='position:absolute;top:55px;left:10px;cursor:pointer;font-size:15px'>Menu &#10140;</span>
 		<div id=content>
 		<a href='whoops' style='z-index:4;position:absolute;left:10px;top:10px;' class=prelesson>< Previous Lesson</a>
 		<a href='whoops' style='z-index:4;position:absolute;right:10px;top:10px;' class=nextlesson>Next Lesson ></a>
