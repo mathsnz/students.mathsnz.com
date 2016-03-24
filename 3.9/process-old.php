@@ -11,8 +11,7 @@ foreach ($xlsx->rows() as $x=>$row ) {
 		if($row[9]!=""){array_push($video,$row[9]);}
 		if($row[10]!=""){array_push($video,$row[10]);}
 		if($row[11]!=""){array_push($video,$row[11]);}
-		$notes=$row[12];
-		$questions=$row[13];
+		$notes=file_exists("./pdfs/$row[6].pdf");
 		$videos=(count($video)>0);
 		$myfile = fopen($file.".html", "w") or die("Unable to open file!");
 		$text="
@@ -35,67 +34,47 @@ foreach ($xlsx->rows() as $x=>$row ) {
 		<a href='whoops' style='z-index:4;position:absolute;right:10px;top:10px;' class=nextlesson>Next Lesson ></a>
 		<span style='position:relative;top:10px;'>";
 		if($videos){
-			$text.="<a href='' class=button onclick='event.preventDefault();$(\"#videoholder\").show();$(\"#questionholder\").hide();$(\"#pdfholder\").hide();'>Video</a>";
+			$text.="<a href='' class=button onclick='event.preventDefault();$(\"#videoholder\").show();$(\"#pdfholder\").hide();'>Video</a>";
 		}
-		if(strlen($notes)>5){
-			$text.="<a href='' class=button onclick='event.preventDefault();$(\"#videoholder\").hide();$(\"#questionholder\").hide();$(\"#pdfholder\").show();'>PDF</a>";
-		}
-		if(strlen($questions)>5){
-			$text.="<a href='' class=button onclick='event.preventDefault();$(\"#videoholder\").hide();$(\"#questionholder\").show();$(\"#pdfholder\").hide();'>On-Screen Questions</a>";
+		if($notes){
+			$text.="<a href='' class=button onclick='event.preventDefault();$(\"#videoholder\").hide();$(\"#pdfholder\").show();'>Notes / Questions</a>";
 		}
 		$text.="
 		</span>
-		</div>";
-		
-		//add the videos
-		$text.="
+		</div>
+		<div id=pdfholder";
+		if($videos || !$notes){
+			$text.=" style='display:none'";
+		}
+		$text.=">
+		<iframe src=\"http://docs.google.com/viewer?url=http://students.mathsnz.com/3.9/pdfs/$row[6].pdf&embedded=true\" style=\"width:100%; height:100%;\" frameborder=\"0\"></iframe>
+		</div>
 		<div id=videoholder style='overflow:auto;";
 		if(!$videos){
 			$text.="display:none";
 		}
 		$text.="'>
 			<br>";
-			foreach ($video as $vid) {
-				if($vid!=""){
-					$text.="
-				<div class='auto-resizable-iframe'>
-				  <div>
-					<iframe
-					 frameborder='0'
-					 allowfullscreen=''
-					 src='http://www.youtube.com/embed/$vid'>
-					 </iframe>
-				  </div>
-				</div>
-				";
-				}
-			}
-		$text.="
-		</div>";
-		
-		//add the pdf
-		$text.="
-		<div id=pdfholder";
-			if($videos || strlen($notes)<5){
-				$text.=" style='display:none'";
-			}
-			$text.=">
-			<iframe src=\"$notes\" style=\"width:100%; height:100%;\" frameborder=\"0\"></iframe>
-		</div>";
-		
-		//add the questions
-		$text.="
-		<div id=questionholder style='background-color:#fff;";
-			if($videos || strlen($notes)>5 || strlen($questions)<5){
-				$text.=" display:none;";
-			}
-			$text.="'>
-			<iframe src=\"$questions\" style=\"width:100%; height:100%;\" frameborder=\"0\"></iframe>
+		foreach ($video as $vid) {
+			if($vid!=""){
+				$text.="
+		<div class='auto-resizable-iframe'>
+		  <div>
+			<iframe
+			 frameborder='0'
+			 allowfullscreen=''
+			 src='http://www.youtube.com/embed/$vid'>
+			 </iframe>
+		  </div>
 		</div>
-
+		";
+			}
+		}
+		$text.="
+		</div>
 		<br>
 		<br>";
-		if(!$videos && strlen($notes)<5 && strlen($questions)<5){
+		if(!$videos && !$notes){
 			$text.= "<center>Nothing here... try the <a href='whoops' style='display:inline;float:none;' class=nextlesson>next lesson</a>...</center>";
 		}
 		$text.="
