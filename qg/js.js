@@ -21,6 +21,8 @@ $('#linkscreen').attr("href",window.location.origin+newPathname+'onscreen.html#'
 if($(this).parent().prev('li').is('.questiondescription:last')&&$(this).parent().is('.questionli:last')){$(this).parent().prev('li').remove();}
 $(this).parent().remove();$('#showhideanswers').remove();$('#answerholder').remove();});$(document).on('keypress','.checktext, .checknumber',function(e){return e.which!=13;});function rand(min,max,step){var num=new BigNumber.random();num=(max-min)*num+min;num=Math.floor(num/step);num=num*step;num=parseFloat(num).toPrecision(Math.max(Math.floor(Math.log(1/step)),1));return new BigNumber(num);}
 function randint(min,max){return Math.floor((Math.random()*(max-min+1))+min);}
+function randarray(min,max,num){i=0;arr=[];while(i<num){arr.push(randint(min,max));i++;}
+return arr;}
 function createCookie(name,value,days){var expires;if(days){var date=new Date();date.setTime(date.getTime()+(days*24*60*60*1000));expires="; expires="+date.toGMTString();}else{expires="";}
 document.cookie=encodeURIComponent(name)+"="+encodeURIComponent(value)+expires+"; path=/";}
 function readCookie(name){var nameEQ=encodeURIComponent(name)+"=";var ca=document.cookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)===' ')c=c.substring(1,c.length);if(c.indexOf(nameEQ)===0)return decodeURIComponent(c.substring(nameEQ.length,c.length));}
@@ -30,3 +32,7 @@ function add(a,b){return new BigNumber(a).add(b);}
 function subtract(a,b){return new BigNumber(a).minus(b);}
 function toRadians(angle){return angle*(Math.PI/180);}
 function toDegrees(angle){return angle/(Math.PI/180);}
+function calculatemean(values){count=values.length;sum=0;for(var index in values){sum=add(sum,values[index]);}
+return parseFloat((sum/count).toPrecision(5));}
+function median(values){count=values.length;values.sort(function(a,b){return a-b});n=count/2-0.5;if(Math.ceil(n)==n){themedian=values[n];}else{themedian=add(values[n-0.5],values[n+0.5])/2;}
+return parseFloat(Number(themedian).toPrecision(10));}
