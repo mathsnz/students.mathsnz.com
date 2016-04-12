@@ -84,7 +84,7 @@ input {
 	left:35px;
 }
 
-.checktext, .checknumber, .checkeda {
+.checktext, .checknumber, .checkeda, .checkmulti {
 	display:inline-block;
 	border:1px solid #ccc;
 	min-width:50px;
@@ -167,6 +167,18 @@ input {
 
 .questiondescription{
 	width:100%;
+}
+
+.button{
+	min-width:20px;
+	min-height:20px;
+	border:1px solid #ccc;
+	background-color:#eee;
+	border-radius:3px;
+	padding:3px;
+	display:inline-block;
+	text-align:center;
+	cursor:pointer;
 }
 
 img {

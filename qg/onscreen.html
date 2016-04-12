@@ -54,6 +54,7 @@ $(document).on('click', '#send1', function () {
 	$('#studentname').val(readCookie('emailstudentname'));
 })
 $(document).on('click', '#send2', function () {
+	$('.buttons').remove();
 	createCookie('emailto', $('#to').val(), 999);
 	createCookie('emailfrom', $('#from').val(), 999);
 	createCookie('emailstudentname', $('#studentname').val(), 999);
@@ -69,6 +70,7 @@ $(document).on('click', '#send2', function () {
         success:function(data)
         {
             $( "#sendholder" ).html(data.message);
+			isChange=false;
         }
     });
 })
