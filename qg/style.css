@@ -84,7 +84,7 @@ input {
 	left:35px;
 }
 
-.checktext, .checknumber, .checkeda, .checkmulti {
+.checktext, .checknumber, .checkeda, .checkmulti, .checkalgebra {
 	display:inline-block;
 	border:1px solid #ccc;
 	min-width:50px;

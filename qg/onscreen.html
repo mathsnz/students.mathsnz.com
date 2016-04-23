@@ -2,21 +2,24 @@
 <head>
   <title>Onscreen Questions - MathsNZ Question Generator</title>
 	<script src="jquery.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_SVG"></script>
 	<script src="js.js"></script>
 	<script src="bignumber.min.js"></script>
 	<script src="base64.js"></script>
+	<script src="algebra.min.js"></script>
   <link rel="stylesheet" href="style.css">
   <style>
 	#addquestion, #selectors {
 		display:none;
 	}
-	#send1, #send2 {
+	#send1, #send2, #checkall {
 		cursor:pointer;
 		border:1px solid #ccc;
 		background-color:#cfc;
 		width:180px;
 		margin:auto;
 		text-transform: uppercase;
+		display:inline-block;
 	}
 	#sendholder {
 		max-width:800px;
@@ -38,7 +41,7 @@
 <button id=addquestion onclick="buttonaddquestion()">Add Question</button>
 <br>
 <div id=questionholder><ol id=questions><li class=questiondescription style='display:none;'>Question Description</li></ol></div>
-<div id=sendholder><div id=send1>Send to Teacher</div></div>
+<div id=sendholder><div id=checkall>Check All</div> <div id=send1>Send to Teacher</div></div>
 <div id=linkholder><br>
 	Made with <a href='http://students.mathsnz.com/qg/'>MathsNZ Question Generator</a><br>
 	Link to this worksheet: <a href='' id=linkscreen>On Screen</a> or <a href='' id=linkprint>Print</a><br>

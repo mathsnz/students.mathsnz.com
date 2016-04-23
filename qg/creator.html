@@ -1,10 +1,13 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Creator - MathsNZ Question Generator</title>
 	<script src="jquery.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_SVG"></script>
 	<script src="js.js"></script>
 	<script src="bignumber.min.js"></script>
 	<script src="base64.js"></script>
+	<script src="algebra.min.js"></script>
   <link rel="stylesheet" href="style.css">
   <style>
 	html {
@@ -42,6 +45,14 @@
 	#linkholder {
 		font-size:1em;
 	}
+	#checkall {
+		cursor:pointer;
+		border:1px solid #ccc;
+		background-color:#cfc;
+		width:180px;
+		margin:auto;
+		text-transform: uppercase;
+	}
 	#questions,#answers{
 		max-width:800px;
 		margin:auto;
@@ -77,6 +88,7 @@
 </div>
 <br>
 <div id=questionholder><br><ol id=questions><li class=questiondescription style='display:none;'>Question Description</li></ol>
+<div id=checkall>Check All</div>
 <div id=showhideanswers onclick='$("#answerholder").toggle();'><br>Click here to show/hide the answers.</div>
 <div id=answerholder style='display:none;'><h1>Answers:</h1><ol id=answers></ol></div>
 </div>
