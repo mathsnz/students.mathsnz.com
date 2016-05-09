@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>MathQuill Demo</title>
+<script src="../jquery.js"></script>
+<link rel="stylesheet" href="mathquill.css"/>
+<script src="mathquill.js"></script>
+</head>
+<body>
+<p>
+  Solve <span id="problem">ax^2 + bx + c = 0</span><br>
+  <span id="ans"></span>
+</p>
+</body>
+<script>
+  var MQ = MathQuill.getInterface(2);
+  MQ.StaticMath($('#problem')[0]);
+  var ans = MQ.MathField($('#ans')[0], {
+    handlers: {
+      edit: function() {
+        console.log(removelatex(ans.latex()));
+      }
+    }
+  });
+  function removelatex(string){
+	string = string.replace(new RegExp("\\\\frac{",'g'), "(");
+	string = string.replace(new RegExp("\\\\left\\(",'g'), "(");
+	string = string.replace(new RegExp("\\\\right\\)",'g'), ")");
+	string = string.replace(new RegExp("\\\\sqrt{",'g'), "sqrt(");
+	string = string.replace(new RegExp("}{",'g'), ")/(");
+	string = string.replace(new RegExp("}",'g'), ")");
+	string = string.replace(new RegExp("{",'g'), "(");
+	string = string.replace(new RegExp("\\\\cdot",'g'), "*");
+	string = string.replace(new RegExp("\\\\le",'g'), "<=");
+	string = string.replace(new RegExp("\\\\ge",'g'), ">=");
+	return string;
+  }
+</script>
+</html>
