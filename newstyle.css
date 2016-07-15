@@ -1,0 +1,54 @@
+#content,#videoholder,#pdfholder,#questionholder{
+	left:0px;
+}
+
+#horisontalnav .document {
+	background: url("./img/document.png");
+}
+
+#horisontalnav .video {
+	background: url("./img/video.png");
+}
+
+#horisontalnav .questions {
+	background: url("./img/questions.png");
+}
+
+#horisontalnav .document, #horisontalnav .questions, #horisontalnav .video {
+	text-indent: -9999px;
+	background-repeat: no-repeat;
+	background-position: 2 2;
+	background-size: 30px 30px;
+	display:inline-block;
+	width:30px;
+	height:30px;
+	padding:2px;
+	margin-top:3px;
+}
+
+.bold {
+	font-weight:bold;
+}
+
+#horisontalnav .bold {
+	background-color:#00be00;
+}
+
+#content {
+	font-weight:bold;
+	font-size:20px;
+}
+
+#horisontalnav .title {
+	display:inline-block;
+	position:relative;
+	top:4px;
+}
+#horisontalnav .title a{
+	color:#000;
+	text-decoration:none;
+}
+
+.group {
+	display:none;
+}

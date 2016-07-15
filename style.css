@@ -152,6 +152,7 @@ ul {
 
 .auto-resizable-iframe {
   max-width: 90%;
+  max-width: 900px;
   margin: 0px auto;
 }
 
