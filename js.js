@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$(window).resize(function(){ $('#nav2').css("display", "none");});
-	$('head').append('<link rel="apple-touch-icon" href="http://www.mathsnz.com/icon.png">');
+	$('head').append('<link rel="apple-touch-icon" href="https://www.mathsnz.com/icon.png">');
 	$('body').append('<img src="https://tracking.jake4maths.com/studentsimage.php?url='+window.location.href+'" style="position:absolute;left:-100px;top:-100px;">');
 	if(getCookie(window.location.pathname)!=undefined){
 		rat=getCookie(window.location.pathname);
