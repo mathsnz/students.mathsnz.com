@@ -26,8 +26,8 @@ foreach ($xlsx->rows() as $x=>$row ) {
 			<link href='../extrastyle.css' rel='stylesheet' type='text/css'>
 			<link href='../newstyle.css' rel='stylesheet' type='text/css'>
 			<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
-			<link rel='icon' href='http://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
-			<link rel='shortcut icon' href='http://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
+			<link rel='icon' href='https://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
+			<link rel='shortcut icon' href='https://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
 			<script src='./script.js'></script>
 		</head>
 		<body>

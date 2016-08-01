@@ -25,8 +25,8 @@ foreach ($xlsx->rows() as $x=>$row ) {
 			<link href='../style.css' rel='stylesheet' type='text/css'>
 			<link href='../extrastyle.css' rel='stylesheet' type='text/css'>
 			<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-			<link rel='icon' href='http://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
-			<link rel='shortcut icon' href='http://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
+			<link rel='icon' href='https://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
+			<link rel='shortcut icon' href='https://students.mathsnz.com/favicon.ico' type='image/x-icon'/>
 			<script src='./script.js'></script>
 		</head>
 		<body>
@@ -46,7 +46,7 @@ foreach ($xlsx->rows() as $x=>$row ) {
 		$text.="
 		</span>
 		</div>";
-		
+
 		//add the videos
 		$text.="
 		<div id=videoholder style='overflow:auto;";
@@ -63,7 +63,7 @@ foreach ($xlsx->rows() as $x=>$row ) {
 					<iframe
 					 frameborder='0'
 					 allowfullscreen=''
-					 src='http://www.youtube.com/embed/$vid'>
+					 src='https://www.youtube.com/embed/$vid'>
 					 </iframe>
 				  </div>
 				</div>
@@ -72,7 +72,7 @@ foreach ($xlsx->rows() as $x=>$row ) {
 			}
 		$text.="
 		</div>";
-		
+
 		//add the pdf
 		$text.="
 		<div id=pdfholder";
@@ -82,7 +82,7 @@ foreach ($xlsx->rows() as $x=>$row ) {
 			$text.=">
 			<iframe src=\"$notes\" style=\"width:100%; height:100%;\" frameborder=\"0\"></iframe>
 		</div>";
-		
+
 		//add the questions
 		$text.="
 		<div id=questionholder style='background-color:#fff;";
