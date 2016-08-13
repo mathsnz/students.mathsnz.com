@@ -68,7 +68,7 @@ If you don't want to get emails, don't sign up.<br>
 </div>
 </div>
 <span style='text-align:center;font-size:0.8em;'>
-Any questions or errors, or if you wish to contribute please <a href='http://www.mathsnz.com/contact'>contact me</a>.<br>
+Any questions or errors, or if you wish to contribute please <a href='https://www.mathsnz.com/contact'>contact me</a>.<br>
 This site is maintained by Jake Wills.<br>
 All resources may be used for personal teaching only and are not to be sold.<br>
 </span>
@@ -77,10 +77,10 @@ All resources may be used for personal teaching only and are not to be sold.<br>
 $(document).on('click', '#submit', function () {
 	var dataToBeSent = $("#signupform").serialize();
 	$( "#replacing" ).html( '<b>Please wait a moment...</b>' );
-	var url = 'http://www.jake4maths.com/generatorshare/signup.php';
+	var url = 'https://www.jake4maths.com/generatorshare/signup.php';
 	$.ajax({
         url : url,
-        method : "POST", 
+        method : "POST",
 		type: "POST",
 		data: dataToBeSent,
         dataType:"json",

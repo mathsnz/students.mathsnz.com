@@ -42,7 +42,7 @@
 <div id=questionholder><ol id=questions><li class=questiondescription style='display:none;'>Question Description</li></ol></div>
 <div id=sendholder><div id=checkall>Check All</div> <div id=send1>Send to Teacher</div></div>
 <div id=linkholder><br>
-	Made with <a href='http://students.mathsnz.com/qg/'>MathsNZ Question Generator</a><br>
+	Made with <a href='https://students.mathsnz.com/qg/'>MathsNZ Question Generator</a><br>
 	Link to this worksheet: <a href='' id=linkscreen>On Screen</a> or <a href='' id=linkprint>Print</a><br>
 	You can also <a href='' id=linkcreator>Edit this Worksheet</a>
 	<br><br><br><br><br>
@@ -62,10 +62,10 @@ $(document).on('click', '#send2', function () {
 	createCookie('emailstudentname', $('#studentname').val(), 999);
 	var dataToBeSent = {to:$('#to').val(), from:$('#from').val(),studentname:$('#studentname').val(),content:$('#questions').html()};
 	$( "#sendholder" ).html( '<b>Sending, please wait a moment...</b>' );
-	var url = 'http://www.jake4maths.com/generatorshare/sendtask.php';
+	var url = 'https://www.jake4maths.com/generatorshare/sendtask.php';
 	$.ajax({
         url : url,
-        method : "POST", 
+        method : "POST",
 		type: "POST",
 		data: dataToBeSent,
         dataType:"json",
