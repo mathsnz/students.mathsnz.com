@@ -66,7 +66,7 @@ foreach ($xlsx->rows() as $x=>$row ) {
 			//add the questions
 			$text.="
 			<div id=questionholder style='background-color:#fff;'>
-				<iframe src=\"$link\" style=\"width:100%; height:100%;\" frameborder=\"0\"></iframe>
+				<iframe src=\"$link\" style=\"width:100%; height:9999px;\" frameborder=\"0\" onload='setInterval(function(){\$(\"#questionholder iframe\").css(\"height\",\"100%\")},2000);'></iframe>
 			</div>";
 		}
 

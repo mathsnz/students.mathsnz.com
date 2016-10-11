@@ -27,8 +27,8 @@
 }
 
 #questionholder{
-	-webkit-overflow-scrolling:touch;
 	overflow:auto;
+	-webkit-overflow-scrolling:touch;
 }
 
 .bold {
