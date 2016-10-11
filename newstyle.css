@@ -26,6 +26,11 @@
 	margin-top:3px;
 }
 
+#questionholder{
+	-webkit-overflow-scrolling:touch;
+	overflow:auto;
+}
+
 .bold {
 	font-weight:bold;
 }
