@@ -19,7 +19,7 @@ input {
 }
 
 #answers {
-	padding: 20px; 
+	padding: 20px;
     list-style-type:decimal;
     counter-reset: LIST-ITEMS 0;
 	max-width:800px;
@@ -60,7 +60,7 @@ input {
 	content: counter( LIST-ITEMS ) ". ";
 	counter-increment: LIST-ITEMS;
 	padding-right: -20%;
-	display:inline;
+	display:block !important;
 	position:absolute;
 	top:1px;
 	left:0px;
