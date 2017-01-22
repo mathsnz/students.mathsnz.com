@@ -77,7 +77,7 @@ input {
 }
 
 .questiontext{
-	max-width:40%;
+	width:calc(70% - 135px);
 	line-height:1.2em;
 	text-align:justify;
 	position:relative;
@@ -213,4 +213,39 @@ standards{
 }
 .remove {
 	display:none;
+}
+.drag, .drop {
+	min-width: 60px;
+	border:1px solid #000;
+	min-height: 20px;
+	display: inline-block;
+	padding:inherit;
+}
+.drop {
+	margin:5px;
+	border: 1px solid #ccc;
+	vertical-align:baseline;
+	margin-bottom: 0px;
+}
+.drag{
+	width:100%;
+	text-align: center;
+}
+.dragholder{
+	display: inline-block;
+	vertical-align:top;
+	padding:5px;
+	margin-left: 20px;
+	width: calc(45% - 35px);
+}
+.dropholder{
+	display: inline-block;
+	vertical-align:top;
+	width: 55%;
+}
+.draghome {
+	border: 1px solid #ccc;
+	min-width: 60px;
+	min-height: 20px;
+	width:auto;
 }
