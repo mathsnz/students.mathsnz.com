@@ -1,0 +1,167 @@
+<html>
+<head>
+  <title>MathsNZ Quiz</title>
+  <style>
+    body{
+      font-family:arial;
+      text-align: center;
+    }
+    #buttons{
+      text-align: center;
+      width:156px;
+      padding: 0px;
+      display: none;
+    }
+    .button, #submit, #start, #backbutton, #submitscore{
+      border:1px solid #000;
+      border-radius: 5px;
+      padding:10px;
+      height:25px;
+      text-align: center;
+      font-weight:bold;
+      margin:0px;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 20px;
+      margin:2.5px;
+    }
+    .button, #backbutton {
+      width:25px;
+      display: inline-block;
+    }
+    #backbutton{
+      font-size:17px;
+    }
+    #submit, #start, #submitscore {
+      width:134px;
+    }
+    #question, #answer {
+      display: inline-block;
+      min-width: 10px;
+    }
+    #clock, .quest {
+      font-size:200%;
+    }
+    #score, #percent {
+      display: inline-block;
+    }
+    #submitscore{
+      display: none;
+    }
+  </style>
+  <script src='jquery.js'></script>
+</head>
+<body>
+  <span class=quest><div id=question> </div> = <div id=answer contenteditable="true"></div></span><br><br>
+  <div id=start>Start</div>
+  <div id=buttons>
+    <div class=button>1</div><div class=button>2</div><div class=button>3</div><div class=button>4</div><div class=button>5</div><div class=button>6</div><div class=button>7</div><div class=button>8</div><div class=button>9</div><div id=backbutton onclick="$('#answer').text($('#answer').text().slice(0,-1))" style='float:right'>&#9003;</div><div class=button style='float:right'>0</div>
+    <div id=submit>Submit</div>
+  </div><br>
+  <br>
+  <div id=clock>Time Left: 5:00</div>
+  <div id=score>Score: </div> - <div id=percent>Percent: </div><br>
+  <br>
+  <div id=submitscore>Submit Score</div>
+  To do list:
+    font
+    colors
+    submitting score... limit one per day
+    uploading users (KAMAR sync would be good)
+    tracking usage
+    reset clock back to good time
+</body>
+<script>
+var correct = 0;
+var incorrect = 0;
+var state = "notstarted";
+var currenttime = 10; //need to put back to 300
+var timer;
+var questions;
+$( document ).ready(function() {
+  $('.button').click(function(){
+    $('#answer').append($(this).text());
+  })
+  $('#submit').click(function(){
+    var ans = parseFloat($('#answer').text());
+    var quest = $('#question').text();
+    if(quest.indexOf('×')>-1){
+      parts = quest.split('×');
+      shouldbe = parseFloat(parts[0])*parseFloat(parts[1]);
+    }
+    if(quest.indexOf('÷')>-1){
+      parts = quest.split('÷');
+      shouldbe = parseFloat(parts[0])/parseFloat(parts[1]);
+    }
+    if(quest.indexOf('+')>-1){
+      parts = quest.split('+');
+      shouldbe = parseFloat(parts[0])+parseFloat(parts[1]);
+    }
+    if(quest.indexOf('-')>-1){
+      parts = quest.split('-');
+      shouldbe = parseFloat(parts[0])-parseFloat(parts[1]);
+    }
+    if(shouldbe==ans){
+      correct++;
+    } else {
+      incorrect++;
+    }
+    $('#answer').text('');
+    newquestion();
+    $('#score').text("Score: "+correct+"/"+(correct+incorrect));
+    $('#percent').text("Percent: "+Math.round(correct/(correct+incorrect)*100,1)+"%");
+  })
+  $('#start').click(function(){
+    state = "running";
+    newquestion();
+    $('#start').hide();
+    $('#buttons').show();
+    $('#buttons').css('display','inline-block');
+    timer = setTimeout( dropone, 1000);
+  })
+});
+function dropone(){
+  currenttime--;
+  min = Math.floor(currenttime/60);
+  sec = currenttime-min*60;
+  $('#clock').text("Time Left: "+min+":"+sec);
+  if(currenttime>0){
+    timer = setTimeout( dropone, 1000);
+  } else {
+    state = "finished";
+    $('#buttons, #clock').hide();
+    $('.quest').text("All Done!");
+    $('#submitscore').css('display','inline-block');
+  }
+}
+function newquestion(){
+  $('#question').text(questions.splice(questions.length * Math.random() | 0, 1)[0]);
+}
+$(document).keypress(function(e){
+  if(e.which == 13){
+    if(state=="running"){
+      $('#submit').click();
+    } else if(state=="notstarted"){
+      $('#start').click();
+    } else if(state=="finished"){
+
+    }
+    e.preventDefault();
+  }
+  if(e.which < 58 && e.which > 47){
+    $('#answer').append(e.which-48);
+    e.preventDefault();
+  }
+})
+$(document).keyup(function(e){
+  if(e.keyCode == 8){
+    $('#answer').text($('#answer').text().slice(0,-1))
+    e.preventDefault();
+  }
+})
+$.get('./questionlist.txt',function(txtFile){
+  questions = txtFile.split("\n");
+  console.log(questions);
+})
+</script>
+</html>
