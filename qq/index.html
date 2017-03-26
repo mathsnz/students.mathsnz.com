@@ -1,10 +1,18 @@
 <html>
 <head>
-  <title>MathsNZ Quiz</title>
+  <title>MathsNZ Quick Questions</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <style>
     body{
-      font-family:arial;
+      font-family: 'Lato', sans-serif;
       text-align: center;
+      padding-top:60px;
+    }
+    input {
+      font-family: 'Lato', sans-serif;
+      border:1px solid #000;
+      padding:10px;
+      border-radius: 5px;
     }
     #buttons{
       text-align: center;
@@ -12,7 +20,7 @@
       padding: 0px;
       display: none;
     }
-    .button, #submit, #start, #backbutton, #submitscore{
+    .button, #submit, #start, #backbutton, #submitscore, .savingbutton{
       border:1px solid #000;
       border-radius: 5px;
       padding:10px;
@@ -32,8 +40,17 @@
     #backbutton{
       font-size:17px;
     }
-    #submit, #start, #submitscore {
+    #submit {
       width:134px;
+    }
+    #submit, #start, #submitscore, .savingbutton, input {
+      width:90%;
+      max-width: 500px;
+    }
+    input {
+      font-size:20px;
+      width: calc(90% + 20px);
+      max-width: 520px;
     }
     #question, #answer {
       display: inline-block;
@@ -48,11 +65,39 @@
     #submitscore{
       display: none;
     }
+    #topbar {
+      position:fixed;
+      top:0px;
+      left:0px;
+      width:100%;
+      padding:0px;
+      padding-top:10px;
+      padding-bottom:10px;
+      font-size:20px;
+      background-color: #88B04B;
+      border-bottom: 1px solid #445825;
+      height: 27px;
+      font-weight: bold;
+    }
+    #currentquestion{
+      display:none;
+    }
+    #variables {
+      display:none;
+    }
+    a {
+      text-decoration: none;
+      color:#000;
+    }
   </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <script src='jquery.js'></script>
 </head>
 <body>
+  <img src="https://tracking.jake4maths.com/qqstudentsimage.php?url=quiz.html" style="position:fixed;left:-100px;top-100px;">
+  <div id=topbar>MathsNZ Quick Questions</div>
   <span class=quest><div id=question> </div> = <div id=answer contenteditable="true"></div></span><br><br>
+  <div id=currentquestion> </div>
   <div id=start>Start</div>
   <div id=buttons>
     <div class=button>1</div><div class=button>2</div><div class=button>3</div><div class=button>4</div><div class=button>5</div><div class=button>6</div><div class=button>7</div><div class=button>8</div><div class=button>9</div><div id=backbutton onclick="$('#answer').text($('#answer').text().slice(0,-1))" style='float:right'>&#9003;</div><div class=button style='float:right'>0</div>
@@ -63,19 +108,18 @@
   <div id=score>Score: </div> - <div id=percent>Percent: </div><br>
   <br>
   <div id=submitscore>Submit Score</div>
-  To do list:
-    font
-    colors
-    submitting score... limit one per day
-    uploading users (KAMAR sync would be good)
-    tracking usage
-    reset clock back to good time
+  <div id=tosave></div>
+  <div id=variables>
+    <div id=school></div>
+    <div id=id></div>
+  </div>
+  <div id=links><b><a href='./scoreboard.html'>Go to Scoreboard</a></b></div>
 </body>
 <script>
 var correct = 0;
 var incorrect = 0;
 var state = "notstarted";
-var currenttime = 10; //need to put back to 300
+var currenttime = 300;
 var timer;
 var questions;
 $( document ).ready(function() {
@@ -84,13 +128,14 @@ $( document ).ready(function() {
   })
   $('#submit').click(function(){
     var ans = parseFloat($('#answer').text());
-    var quest = $('#question').text();
-    if(quest.indexOf('×')>-1){
-      parts = quest.split('×');
+    var quest = $('#currentquestion').text();
+    shouldbe = "error";
+    if(quest.indexOf('*')>-1){
+      parts = quest.split('*');
       shouldbe = parseFloat(parts[0])*parseFloat(parts[1]);
     }
-    if(quest.indexOf('÷')>-1){
-      parts = quest.split('÷');
+    if(quest.indexOf('/')>-1){
+      parts = quest.split('/');
       shouldbe = parseFloat(parts[0])/parseFloat(parts[1]);
     }
     if(quest.indexOf('+')>-1){
@@ -119,6 +164,27 @@ $( document ).ready(function() {
     $('#buttons').css('display','inline-block');
     timer = setTimeout( dropone, 1000);
   })
+  //$('#buttons, #clock, #start').hide(); // get rid of this
+  //$('#start').click(); // and this
+  $('#submitscore').click(function(){
+    $('#submitscore').hide();
+    $('#tosave').html("loading...")
+    $.get('https://server.mathsnz.com/qq/getschools.php').done(function(data){
+      $('#tosave').html(data);
+      $('.savingbutton').click(function(){
+        $('#school').text($(this).text());
+        $('#tosave').html('<b>What is your username?</b><br><br><input id=username><br><div class=savingbutton>Next</div>');
+        $('#username').focus();
+        $('.savingbutton').click(function(){
+          username = $('#username').val();
+          $('#tosave').html("loading...");
+          $.post('https://server.mathsnz.com/qq/getid.php',{school:encodeURIComponent($('#school').text()),username:encodeURIComponent(username)}).done(function(data){
+            $('#tosave').html(data);
+          })
+        })
+      })
+    })
+  })
 });
 function dropone(){
   currenttime--;
@@ -135,7 +201,11 @@ function dropone(){
   }
 }
 function newquestion(){
-  $('#question').text(questions.splice(questions.length * Math.random() | 0, 1)[0]);
+  $('#currentquestion').text(questions.splice(questions.length * Math.random() | 0, 1)[0]);
+  quest = $('#currentquestion').text();
+  quest = quest.replace("/",String.fromCharCode(247)); //÷
+  quest = quest.replace("*",String.fromCharCode(215)); //×
+  $("#question").text(quest);
 }
 $(document).keypress(function(e){
   if(e.which == 13){
@@ -161,7 +231,6 @@ $(document).keyup(function(e){
 })
 $.get('./questionlist.txt',function(txtFile){
   questions = txtFile.split("\n");
-  console.log(questions);
 })
 </script>
 </html>
