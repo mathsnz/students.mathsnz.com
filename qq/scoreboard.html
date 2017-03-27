@@ -114,7 +114,7 @@ $( document ).ready(function() {
     $('#tosave').html(data);
     $('.savingbutton').click(function(){
       $('#tosave').html("Loading...");
-      $.get('https://server.mathsnz.com/qq/scoreboard.php?school='+encodeURIComponent($(this).text)).done(function(data){
+      $.get('https://server.mathsnz.com/qq/scoreboard.php?school='+encodeURIComponent($(this).text())).done(function(data){
         $('#tosave').html(data);
       })
     })
