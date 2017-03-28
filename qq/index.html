@@ -152,7 +152,11 @@ $( document ).ready(function() {
       incorrect++;
     }
     $('#answer').text('');
-    newquestion();
+    if(correct+incorrect > 684){
+      currenttime = 0;
+    } else {
+      newquestion();
+    }
     $('#score').text("Score: "+correct+"/"+(correct+incorrect));
     $('#percent').text("Percent: "+Math.round(correct/(correct+incorrect)*100,1)+"%");
   })
