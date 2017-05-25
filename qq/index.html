@@ -166,7 +166,6 @@ $( document ).ready(function() {
     $('#percent').text("Percent: "+Math.round(correct/(correct+incorrect)*100,1)+"%");
   })
   $('#start').click(function(){
-    state = "running";
     newquestion();
     $('#start').hide();
     $('#buttons').show();
@@ -196,6 +195,7 @@ $( document ).ready(function() {
   })
 });
 function dropone(){
+  state = "running";
   currenttime--;
   min = Math.floor(currenttime/60);
   sec = currenttime-min*60;
