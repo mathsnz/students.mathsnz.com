@@ -216,7 +216,6 @@ standards{
 }
 .drag, .drop {
 	min-width: 60px;
-	border:1px solid #000;
 	min-height: 20px;
 	display: inline-block;
 	padding:inherit;
@@ -248,4 +247,17 @@ standards{
 	min-width: 60px;
 	min-height: 20px;
 	width:auto;
+}
+.clickers tr td {
+	background-color: #eee;
+	border-radius: 8px;
+	width:15px;
+	height:15px;
+	cursor: pointer;
+}
+.clickers tr td.clicked{
+	background-color: #444;
+}
+.clickers tr td.home{
+	background-color: #0af;
 }

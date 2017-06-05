@@ -4,6 +4,6 @@ question+='<tr><td><img src="./images/quadrilateral-parallelogram.png" style="ma
 question+='<tr><td><img src="./images/quadrilateral-rectangle.png" style="max-width:80px;max-height:80px;"><td>'+'<select class=select answer="'+encode64("Rectangle")+'" style="max-width:90%">'+names+"</select>"+noyesselect+yesnoselect+noyesselect+yesnoselect+yesnoselect
 question+='<tr><td><img src="./images/quadrilateral-rhombus.png" style="max-width:80px;max-height:80px;"><td>'+'<select class=select answer="'+encode64("Rhombus")+'" style="max-width:90%">'+names+"</select>"+yesnoselect+yesnoselect+yesnoselect+noyesselect+yesnoselect
 question+='<tr><td><img src="./images/quadrilateral-trapezium.png" style="max-width:80px;max-height:80px;"><td>'+'<select class=select answer="'+encode64("Trapezium")+'" style="max-width:90%">'+names+"</select>"+noyesselect+noyesselect+noyesselect+noyesselect+noyesselect
-question+='</table>';var answer='Square, Kite, Parallelogram, Rectangle, Rhombus, Trapezium';var description="Drag and drop to put the words into the correct place:"
+question+='</table>';var answer='Square, Kite, Parallelogram, Rectangle, Rhombus, Trapezium';var description="Select the right options from the dropdowns below:"
 var array={question:question,answer:answer,description:description,noworking:!0}
 return array}
