@@ -9,7 +9,8 @@ hideworking=''
 if(array.noworking){hideworking=' style="display:none"'}
 if(question.indexOf("class=checktext")>=0||question.indexOf("class=checknumber")>=0||question.indexOf("class=select")>=0||question.indexOf("class=checkmulti")>=0||question.indexOf("class=checkalgebra")>=0||question.indexOf("class=drop")>=0){question='<li class=questionli><div class=remove>&#10006;</div><div class=question><div class=questiontext>'+question+'</div><div '+hideworking+' class=workinglabel>Working / Notes</div><div '+hideworking+' class=working contenteditable=true></div><div class=check><p>Check</p></div><div class=attemptholder style="color:green;">Attempt <span class=attempt>1</span>/3</div></div></li>'}else if(question.substr(0,9)=='<b>Lesson'){question=question+"<br><br>"}else{question='<li class=questionli><div class=remove>&#10006;</div><div class=question><div class=questiontext>'+question+'</div><div '+hideworking+' class=workinglabel>Working / Notes</div><div '+hideworking+' class=working contenteditable=true></div><div class=check><p>Done</p></div><div class=attemptholder style="color:green; display:none;">Attempt <span class=attempt>#</span>/#</div></div></li>'}
 $('#questions').append(question);$('#answers').append('<li>'+answer+'</li>');preventmove();checkalgebra()}else{addquestion(array,0)}
-$('.clickers tr td:not(.home)').click(function(){$(this).toggleClass('clicked')})}
+$('.clickers tr td:not(.home)').click(function(){$(this).toggleClass('clicked')})
+$('.isopaper tr td').click(function(){$(this).toggleClass('clicked')})}
 function textanswer(answer){return '<div contenteditable="true" class=checktext answer="'+encode64(answer)+'"></div>'}
 function multianswer(answer){answers=[]
 for(index in answer){answers[index]=encode64((""+answer[index]).replace(/\s+/g,''))}
@@ -73,3 +74,15 @@ if($.inArray(i,home)>-1){table+=' home'}
 table+='">';console.log(i);c++;i++}
 r++}
 table+='</table>';return table}
+function drawisopaper(id){var canvas=$("#"+id)[0];var ctx=canvas.getContext('2d');ctx.fillStyle='#fff'
+ctx.fillRect(0,0,500,300);y=10;lastx=10
+while(y<300){if(lastx==10){lastx=40}else{lastx=10}
+x=lastx;while(x<500){ctx.beginPath();ctx.arc(x,y,2,0,Math.PI*2,!0);ctx.fillStyle='#000'
+ctx.fill();ctx.closePath();x+=60}
+y+=15}
+$("#"+id).click(function(e){var ctx=$(this)[0].getContext('2d');var rect=$(this)[0].getBoundingClientRect();var x=e.clientX-rect.left,y=e.clientY-rect.top
+checkx=Math.floor((x+2)/5)-2;if(Math.floor(checkx/6)==checkx/6){x=(checkx+2)*5;if(checkx/12==Math.floor(checkx/12)){y=Math.floor((y+30)/30)*30-20}else{y=Math.floor((y+15)/30)*30-5}
+var c=ctx.getImageData(x,y,1,1).data;if(c[0]<180){ctx.strokeStyle="#fff";ctx.lineWidth=4}else{ctx.strokeStyle="#000";ctx.lineWidth=2}
+ctx.beginPath();ctx.moveTo(x,y-13);ctx.lineTo(x,y+13);ctx.stroke();return}
+x=Math.floor((x+20)/30)*30-5;y=Math.floor((y+6)/15)*15+3;var c=ctx.getImageData(x,y,1,1).data;if(c[0]<180){ctx.strokeStyle="#fff";ctx.lineWidth=4}else{ctx.strokeStyle="#000";ctx.lineWidth=2}
+if((Math.floor((y-3)/30)==(y-3)/30&&Math.floor((x+5)/60)==(x+5)/60)||(Math.floor((y-3)/30)!=(y-3)/30&&Math.floor((x+5)/60)!=(x+5)/60)){ctx.beginPath();ctx.moveTo(x+13,y-7);ctx.lineTo(x-13,y+7);ctx.stroke()}else{ctx.beginPath();ctx.moveTo(x-13,y-7);ctx.lineTo(x+13,y+7);ctx.stroke()}})}

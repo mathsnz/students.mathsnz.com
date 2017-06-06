@@ -1,0 +1,2 @@
+function isopaper(){var id=Math.random().toString(36).replace(/[^a-z]+/g,'').substr(0,20);var question="<canvas id='"+id+"' class='isometric' width='500' height='300'>Canvas not supported</canvas><script>drawisopaper('"+id+"')</script>";var answer='';var description='Here is some blank isometric paper';var array={question:question,answer:answer,description:description,noworking:!0}
+return array}

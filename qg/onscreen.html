@@ -61,6 +61,12 @@ $(document).on('click', '#send2', function () {
 	createCookie('emailto', $('#to').val(), 999);
 	createCookie('emailfrom', $('#from').val(), 999);
 	createCookie('emailstudentname', $('#studentname').val(), 999);
+  $('canvas').each(function(){
+    dataURL = $(this)[0].toDataURL();
+    string = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 20);
+    $.post('https://server.mathsnz.com/generatorimages/save.php',{imgBase64:dataURL,string:string});
+    $(this).replaceWith( "<img src='https://server.mathsnz.com/generatorimages/images/"+string+".png'>" );
+  })
 	var dataToBeSent = {to:$('#to').val(), from:$('#from').val(),studentname:$('#studentname').val(),content:$('#questions').html()};
 	$( "#sendholder" ).html( '<b>Sending, please wait a moment...</b>' );
 	var url = 'https://www.jake4maths.com/generatorshare/sendtask.php';
@@ -72,8 +78,11 @@ $(document).on('click', '#send2', function () {
         dataType:"json",
         success:function(data)
         {
-            $( "#sendholder" ).html(data.message);
-			isChange=false;
+          $( "#sendholder" ).html(data.message);
+    			isChange=false;
+          $("img").each(function(){
+            $(this).attr('src',$(this).attr('src'));
+          })
         }
     });
 })
