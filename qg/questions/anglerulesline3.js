@@ -1,0 +1,2 @@
+function anglerulesline3(){rot=randint(0,360);a=randint(30,90);b=randint(a+30,120);c=randint(b+30,150);var answer=180-a-b-c;var question='<img width=300 src="https://www.jake4maths.com/generator/angles.php?rot='+rot+'&a='+a+'&b='+b+'&c='+c+'&d=180&e=180&anga=1&angb=1&angc=1&angd=2&ange=0&angf=0"><br>area = '+numberanswer(answer);var description="Find the missing angle.";var array={question:question,answer:answer,description:description}
+return array}
