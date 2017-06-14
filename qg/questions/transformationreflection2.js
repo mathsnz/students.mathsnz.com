@@ -1,9 +1,9 @@
-function transformationreflection2(){var id=Math.random().toString(36).replace(/[^a-z]+/g,'').substr(0,20);var question="<canvas id='"+id+"' class='sidetopview' width='500' height='300'>Canvas not supported</canvas>";question+="<script>transgrid('"+id+"');</script>";t=randint(1,4);if(t==1){question+="<script>colorline(100,0,400,300,'"+id+"');</script>";left=60
-right=180
-thistop=140
-bottom=240}
-if(t==2){question+="<script>colorline(400,0,100,300,'"+id+"');</script>";left=100
-right=180
+function transformationreflection2(){var id=Math.random().toString(36).replace(/[^a-z]+/g,'').substr(0,20);var question="<canvas id='"+id+"' class='sidetopview' width='500' height='300'>Canvas not supported</canvas>";question+="<script>transgrid('"+id+"');</script>";t=randint(1,4);if(t==1){question+="<script>colorline(100,0,400,300,'"+id+"');</script>";left=120
+right=220
+thistop=160
+bottom=260}
+if(t==2){question+="<script>colorline(400,0,100,300,'"+id+"');</script>";left=140
+right=220
 thistop=40
 bottom=120}
 if(t==3){question+="<script>colorline(0,150,500,150,'"+id+"');</script>";left=180
