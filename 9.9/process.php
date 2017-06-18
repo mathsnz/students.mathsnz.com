@@ -18,7 +18,7 @@ foreach ($xlsx->rows() as $x=>$row ) {
 		$text="
 		<html>
 		<head>
-			<title>MathsNZ Students - 9.10 - $title ($type)</title>
+			<title>MathsNZ Students - 9.9 - $title ($type)</title>
 			<script src='../jquery.js'></script>
 			<script src='../js.js'></script>
 			<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
