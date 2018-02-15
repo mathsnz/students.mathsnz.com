@@ -1,3 +1,9 @@
+/*
+Sort:|0.09|
+Question Type:|Geometry|
+Question Name:|Map - Grid Reference|
+*/	
+
 function mapgridreference(){seed=randint(0,999999);scale=randint(1,4);g1=randint(100,990);g2=randint(100,990);if(scale==4){scale=10}
 if(scale==3){scale=5}
 adj=randint(1,2);if(adj==1){answermult=1*scale;scale+="km"}else{answermult=100*scale;scale+="00m"}

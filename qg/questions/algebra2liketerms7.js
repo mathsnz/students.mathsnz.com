@@ -1,3 +1,9 @@
+/*
+Sort:|1.02|
+Question Type:|Algebra <standard>(1.2)</standard>|
+Question Name:|Combining Like Terms with Squared Terms|
+*/	
+
 function algebra2liketerms7(){a=randint(2,3);b=randint(1,2);letter1=randletter();letter2=letter1;while(letter2==letter1){letter2=randletter()}
 terms=[];i=0;total1=0;while(i<a){num=randint(-7,7);while(num==0){num=randint(-7,7)}
 total1+=num;if(num==1){num=""}

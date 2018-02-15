@@ -1,3 +1,9 @@
+/*
+Sort:|0.09|
+Question Type:|Geometry|
+Question Name:|Transformation - Reflection|
+*/	
+
 function transformationreflection(){var id=Math.random().toString(36).replace(/[^a-z]+/g,'').substr(0,20);var question="<canvas id='"+id+"' class='sidetopview' width='500' height='300'>Canvas not supported</canvas>";question+="<script>transgrid('"+id+"');</script>";t=randint(1,4);if(t==1){question+="<script>colorline(100,0,400,300,'"+id+"');</script>";left=140
 right=180
 thistop=140

@@ -1,3 +1,9 @@
+/*
+Sort:|1.02|
+Question Type:|Algebra <standard>(1.2)</standard>|
+Question Name:|Combining Like Terms Without Coefficient - 2 Variables|
+*/	
+
 function algebra2liketerms2(){a=randint(2,4);b=randint(1,4);letter1=randletter();letter2=letter1;while(letter2==letter1){letter2=randletter()}
 letters=[];i=0;while(i<a){letters.push(letter1);i++}
 i=0;while(i<b){letters.push(letter2);i++}

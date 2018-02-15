@@ -1,3 +1,9 @@
+/*
+Sort:|0.09|
+Question Type:|Geometry|
+Question Name:|Loci - Line|
+*/	
+
 function lociline(){var id=Math.random().toString(36).replace(/[^a-z]+/g,'').substr(0,20);angle=randint(0,12)*15;size=randint(1,4);scale=randint(1,4);if(scale==4){scale=10}
 if(scale==3){scale=5}
 dist=size*scale;adj=randint(1,2);if(adj==1){scale+="km";dist+="km"}else{scale+="00m";dist+="00m"}

@@ -1,3 +1,9 @@
+/*
+Sort:|0.09|
+Question Type:|Geometry|
+Question Name:|Transformation - Translation|
+*/	
+
 function transformationtranslation(){var id=Math.random().toString(36).replace(/[^a-z]+/g,'').substr(0,20);var question="<canvas id='"+id+"' class='sidetopview' width='500' height='300'>Canvas not supported</canvas>";question+="<script>transgrid('"+id+"');</script>";left=220
 right=260
 thistop=120

@@ -1,3 +1,9 @@
+/*
+Sort:|0.09|
+Question Type:|Geometry|
+Question Name:|Transformation - Enlargement|
+*/	
+
 function transformationenlargement(){var id=Math.random().toString(36).replace(/[^a-z]+/g,'').substr(0,20);var question="<canvas id='"+id+"' class='sidetopview' width='500' height='300'>Canvas not supported</canvas>";question+="<script>transgrid('"+id+"');</script>";question+="<script>colordot(110,190,'"+id+"');</script>";left=160
 right=200
 thistop=140

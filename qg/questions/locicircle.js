@@ -1,3 +1,9 @@
+/*
+Sort:|0.09|
+Question Type:|Geometry|
+Question Name:|Loci - Point|
+*/	
+
 function locicircle(){var id=Math.random().toString(36).replace(/[^a-z]+/g,'').substr(0,20);x=randint(50,450);y=randint(50,250);size=randint(1,4);scale=randint(1,4);if(scale==4){scale=10}
 if(scale==3){scale=5}
 dist=size*scale;adj=randint(1,2);if(adj==1){scale+="km";dist+="km"}else{scale+="00m";dist+="00m"}
