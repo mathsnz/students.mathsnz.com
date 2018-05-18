@@ -79,7 +79,7 @@ function processquestion(w,e){
 		if(array.noworking){
 			hideworking=' style="display:none"';
 		}
-		if(question.indexOf("class=checktext")>=0 || question.indexOf("class=checknumber")>=0 || question.indexOf("class=select")>=0 || question.indexOf("class=checkmulti")>=0 || question.indexOf("class=checkalgebra")>=0 || question.indexOf("class=drop")>=0){
+		if(question.indexOf("class=checktext")>=0 || question.indexOf("class=checknumber")>=0 || question.indexOf("class=select")>=0 || question.indexOf("class=checkmulti")>=0 || question.indexOf("class=checkalgebra")>=0 || question.indexOf("class=drop")>=0 || question.indexOf("class=clickanswer")>=0){
 			question='<li class=questionli><div class=remove>&#10006;</div><div class=question><div class=questiontext>'+question+'</div><div '+hideworking+' class=workinglabel>Working / Notes</div><div '+hideworking+' class=working contenteditable=true></div><div class=check><p>Check</p></div><div class=attemptholder style="color:green;">Attempt <span class=attempt>1</span>/3</div></div></li>';
 		} else if (question.substr(0,9)=='<b>Lesson'){
 			question=question+"<br><br>"
@@ -140,7 +140,19 @@ function dragdropanswer(answer){
 }
 
 function dragdropdrops(entry){
-	return '<div class=draghome id=drop'+randint(0,10000000000)+' ondrop="drop(event)" ondragover="allowDrop(event)"><div class=drag id=drag'+randint(0,10000000000)+' draggable="true" ondragstart="drag(event)">'+entry+'</div></div><br>';
+	return '<div class=draghome id=drop'+randint(0,10000000000)+' ondrop="drop(event)" ondragover="allowDrop(event)"><div class=drag id=drag'+randint(0,10000000000)+' draggable="true" ondragstart="drag(event)">'+entry+'</div></div>';
+}
+
+function clickanswer(entry,correct){
+	return '<div class=clickanswer answer='+correct+' onclick="toggleclick($(this))">'+entry+'</div>';
+}
+
+function toggleclick(item){
+	if(item.hasClass('clicked')){
+		item.removeClass('clicked')
+	} else {
+		item.addClass('clicked')
+	}
 }
 
 //replace items in text
@@ -164,11 +176,9 @@ $(document).on('click','.check',function(){
 	var answers=0;
 	var algebracorrect='no';
 	var attempts=$(this).parent().children('.attemptholder').first().children('.attempt').first().text();
-	$(this).parent().children('.questiontext').first().find('.checktext, .checknumber, .checkmulti ,.checkalgebra, .drop, .select').each(function(){
+	$(this).parent().children('.questiontext').first().find('.checktext, .checknumber, .checkmulti ,.checkalgebra, .drop, .select, .clickanswer').each(function(){
 		answers=answers+1;
-		if($(this).text().replace(/\s+/g,'').length==0){
-			thiscurrentlyis="";
-		} else if($(this).hasClass('checknumber')){
+		if($(this).hasClass('checknumber')){
 			var thiscurrentlyis=encode64(parseFloat(parseFloat($(this).text()).toPrecision(3)));
 		} else if($(this).hasClass('checkmulti')){
 			var thiscurrentlyis=encode64($(this).text().replace(/\s+/g,''));
@@ -180,10 +190,20 @@ $(document).on('click','.check',function(){
 			if(algebraanswer==0){algebracorrect='yes'}
 		} else if($(this).hasClass('select')){
 			var thiscurrentlyis=encode64($(this).val());
+		} else if($(this).hasClass('clickanswer')){
+			if($(this).hasClass('clicked')){
+				var thiscurrentlyis="correct";
+			} else {
+				var thiscurrentlyis="incorrect";
+			}
+		} else if($(this).text().replace(/\s+/g,'').length==0){
+			thiscurrentlyis="";
 		} else {
 			var thiscurrentlyis=encode64($(this).text());
 		}
 		var thisshouldbe=$(this).attr("answer").split("|");
+		console.log(thisshouldbe);
+		console.log(thiscurrentlyis);
 		if(thisshouldbe.indexOf(thiscurrentlyis)>-1 || algebracorrect=='yes'){
 			if($(this).hasClass('select')){
 				$(this).replaceWith('<div class="checkeda">'+$(this).val()+'</div>');
@@ -210,6 +230,11 @@ $(document).on('click','.check',function(){
 		$(this).removeClass('check');
 		$(this).addClass('checked');
 		$(this).removeAttr('style');
+		$(this).parent().children('.questiontext').first().find('.clickanswer').removeAttr('onclick');
+		$(this).parent().children('.questiontext').first().find('.clicked.clickanswer[answer=correct]').css('border','3px solid #0f0');
+		$(this).parent().children('.questiontext').first().find('.clicked.clickanswer[answer=incorrect]').css('border','3px solid #f00');
+		$(this).parent().children('.questiontext').first().find('.clickanswer').css('display','inline-block');
+		$(this).parent().children('.questiontext').first().find('.clicked').removeClass('clicked');
 		$(this).parent().children('.questiontext').first().children('.buttons').first().remove();
 		$(this).parent().children('.questiontext').first().children('.checktext, .checknumber, .checkmulti, .checkalgebra').each(function(){
 			if($(this).text().length==0){

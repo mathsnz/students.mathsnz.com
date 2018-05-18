@@ -64,8 +64,8 @@ $(document).on('click', '#send2', function () {
   $('canvas').each(function(){
     dataURL = $(this)[0].toDataURL();
     string = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 20);
-    $.post('https://server.mathsnz.com/generatorimages/save.php',{imgBase64:dataURL,string:string});
-    $(this).replaceWith( "<img src='https://server.mathsnz.com/generatorimages/images/"+string+".png'>" );
+    $.post('https://www.jake4maths.com/generatorimages/save.php',{imgBase64:dataURL,string:string});
+    $(this).replaceWith( "<img src='https://www.jake4maths.com/generatorimages/images/"+string+".png'>" );
   })
 	var dataToBeSent = {to:$('#to').val(), from:$('#from').val(),studentname:$('#studentname').val(),content:$('#questions').html()};
 	$( "#sendholder" ).html( '<b>Sending, please wait a moment...</b>' );

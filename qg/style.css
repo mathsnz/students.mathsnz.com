@@ -242,6 +242,14 @@ standards{
 	vertical-align:top;
 	width: 55%;
 }
+.clickanswer{
+	width: auto;
+    display: inline-block;
+	border:1px solid #ccc;
+}
+.clickanswer.clicked{
+	border:3px solid #f80;
+}
 .draghome {
 	border: 1px solid #ccc;
 	min-width: 60px;
