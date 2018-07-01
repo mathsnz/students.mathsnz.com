@@ -58,44 +58,6 @@
 	display:none;
 }
 
-#rating {
-	position: fixed;
-	bottom:31px;
-	left:0px;
-	right: 0px;
-	border-top: 1px solid #ccc;
-	background-color: #eee;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	text-align: center;
-	overflow: hidden;
-	box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
-	z-index: 18;
-}
-
 #sites{
 	height:20px;
-}
-
-#reason {
-	font-family: 'Century Gothic', CenturyGothic, 'Lato', sans-serif;
-	background-color: #fff;
-	border:1px solid #aaa;
-}
-
-#send {
-	border: 1px solid #aaa;
-  background-color: #ccc;
-  padding-left: 5px;
-  padding-right: 5px;
-  height: 21px;
-  display: inline-block;
-  position: relative;
-  top: -1px;
-	cursor:pointer;
-}
-
-.star {
-	height:24px;
-	cursor:pointer;
 }

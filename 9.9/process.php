@@ -71,17 +71,9 @@ foreach ($xlsx->rows() as $x=>$row ) {
 		}
 
 		$text.="
-		<div id='rate'></div>
 		<div id='sites'></div>
 		<div id='header'></div>
 		<div id='footer'></div>
-		<dic id='rating'>
-			<span style='position:relative;top:-6px;display:inline-block;font-size:16px;'>Rate:</span> <img src='../img/emptystar.png' class=star>
-			<img src='../img/emptystar.png' class=star>
-			<img src='../img/emptystar.png' class=star>
-			<img src='../img/emptystar.png' class=star>
-			<img src='../img/emptystar.png' class=star>
-		</div>
 		</body>
 		</html>";
 		fwrite($myfile, $text);
