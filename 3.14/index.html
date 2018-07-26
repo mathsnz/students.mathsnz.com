@@ -7,23 +7,46 @@
 	<link href='../style.css' rel='stylesheet' type='text/css'>
 	<link rel="icon" href="https://students.mathsnz.com/favicon.ico" type="image/x-icon"/>
 	<link rel="shortcut icon" href="https://students.mathsnz.com/favicon.ico" type="image/x-icon"/>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
 	<script>
 	$(function(){
 	  $("#sites").load("../sites.html");
-	  $("#header").load("../header-L2.html");
+	  $("#header").load("../header-L2a.html");
 	  $("#footer").load("../footer.html");
 	  $("#pages").load("./left.html");
-	  var title="Probability Distributions";
-	  document.title='MathsNZ Students - 3.14 - '+title;
 	  $("#pagetitle").text(document.title);
 	});
 	</script>
 	<style>
 		#pages a {
 			display:block;
+			text-decoration:none;
 		}
-		#pages a.indent {
-			padding-left:15px;
+		#pages a {
+			padding-left:25px;
+		}
+		#pages a {
+			text-indent:-15px;
+		}
+		#pages .title {
+			font-weight:bold;
+		}
+		#pages a.video::before {
+			background-image: url('../img/video.png');
+		}
+		#pages a.document::before {
+			background-image: url('../img/document.png');
+		}
+		#pages a.questions::before {
+			background-image: url('../img/questions.png');
+		}
+		#pages a.video::before, #pages a.document::before, #pages a.questions::before {
+			background-size: 12px 12px;
+			display: inline-block;
+			width: 16px;
+			background-repeat: no-repeat;
+			height: 12px;
+			content:"";
 		}
 		h1{
 			text-align:center;
