@@ -269,3 +269,10 @@ standards{
 .clickers tr td.home{
 	background-color: #0af;
 }
+.border {
+	border-collapse:collapse;
+	border: 1px solid #000;
+}
+.border td, .border th {
+	border: 1px solid #000;
+}
