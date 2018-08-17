@@ -134,7 +134,7 @@ function numberanswer(answer){
 function dragdropanswer(answer){
 	answer=answer.split('|');
 	a=[];
-	answer.forEach(function(entry){a.push(encode64($(entry).text()))});
+	answer.forEach(function(entry){a.push(encode64($("<div/>").html(entry).text()))});
 	a=a.join('|');
 	return '<div class=drop id=drop'+randint(0,10000000000)+' ondrop="drop(event)" ondragover="allowDrop(event)" answer="'+(a)+'"></div>';
 }
