@@ -48,7 +48,7 @@
 }
 
 #horisontalnav .bold {
-	background-color:#00be00;
+	background-color:#00be00 !important;
 }
 
 #content {
