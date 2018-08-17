@@ -26,5 +26,8 @@
 			var n = $(this).text().indexOf(":");
 			$(this).html("<a href='./'>"+$(this).text().substr(0,n+1)+"</a>");
 		});
+		$('#horisontalnav a[header]').each(function(){
+			$(this).prepend('<div class=overlaylabel>'+$(this).attr('header')+'</div>')
+		})
       });
 	});
