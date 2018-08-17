@@ -30,6 +30,6 @@ function probmatchtablegraph(){
 	question+='</div>';
 	var answer='Deterministic Model: A model that will always produce the same result for a given set of input values. Does not include elements of randomness.<br>Experiment: A process or study that results in the collection of data, the outcome of which is unknown.<br>Experimental Probability : An estimate of the probability that an event will occur calculated from trials of a probability activity by dividing the number of times the event occurred by the total number of trials.<br>Probabilistic Model: A model that takes uncertainty in outcomes into account. This is often done by associating a probability with each possible outcome.<br>Randomness: The idea that although each outcome of a process has a fixed probability, the actual outcome of any trial of the process cannot be predicted.<br>Simulation: A technique for imitating the behaviour of a situation that involves elements of chance or a probability activity.<br>Theoretical Probability: The probability that an event will occur based on a probability model.<br>True Probability: The actual probability that an event will occur.';
 	var description="Drag and drop to put the definitions into the correct place:"
-	var array={question:question,answer:answer,description:description}
+	var array={question:question,answer:answer,description:description,noworking:1}
 	return array
 }
