@@ -41,7 +41,7 @@
 <button id=addquestion onclick="buttonaddquestion()">Add Question</button>
 <br>
 <div id=questionholder><ol id=questions><li class=questiondescription style='display:none;'>Question Description</li></ol></div>
-<div id=sendholder><div id=checkall>Check All</div> <div id=send1>Send to Teacher</div></div>
+<div id=sendholder><div id=checkall>Check All</div></div>
 <div id=linkholder><br>
 	Made with <a href='https://students.mathsnz.com/qg/'>MathsNZ Question Generator</a><br>
 	Link to this worksheet: <a href='' id=linkscreen>On Screen</a> or <a href='' id=linkprint>Print</a><br>
@@ -50,42 +50,5 @@
 	<br><br><br><br><br>
 </div>
 </body>
-<script>
-$(document).on('click', '#send1', function () {
-	$( "#sendholder" ).html( '<form><table><tr><td>Your Name:<td><input id=studentname><tr><td>Your Email:<td><input id=from><tr><td>Teacher Email:<td><input id=to></table></form><div id=send2>Send</div>' );
-	$('#to').val(readCookie('emailto'));
-	$('#from').val(readCookie('emailfrom'));
-	$('#studentname').val(readCookie('emailstudentname'));
-})
-$(document).on('click', '#send2', function () {
-	$('.buttons').remove();
-	createCookie('emailto', $('#to').val(), 999);
-	createCookie('emailfrom', $('#from').val(), 999);
-	createCookie('emailstudentname', $('#studentname').val(), 999);
-  $('canvas').each(function(){
-    dataURL = $(this)[0].toDataURL();
-    string = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 20);
-    $.post('https://www.jake4maths.com/generatorimages/save.php',{imgBase64:dataURL,string:string});
-    $(this).replaceWith( "<img src='https://www.jake4maths.com/generatorimages/images/"+string+".png'>" );
-  })
-	var dataToBeSent = {to:$('#to').val(), from:$('#from').val(),studentname:$('#studentname').val(),content:$('#questions').html()};
-	$( "#sendholder" ).html( '<b>Sending, please wait a moment...</b>' );
-	var url = 'https://www.jake4maths.com/generatorshare/sendtask.php';
-	$.ajax({
-        url : url,
-        method : "POST",
-		type: "POST",
-		data: dataToBeSent,
-        dataType:"json",
-        success:function(data)
-        {
-          $( "#sendholder" ).html(data.message);
-    			isChange=false;
-          $("img").each(function(){
-            $(this).attr('src',$(this).attr('src'));
-          })
-        }
-    });
-})
 </script>
 </html>
